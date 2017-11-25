@@ -39,7 +39,7 @@ layout=matrix(c(1,1,2,2), nrow=2, byrow=TRUE)
 multiplot(p1, p2, layout = layout)
 ```
 
-![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-2-1.png?raw=true) 이러한 2005년과 2010년의 ‘이례적 범죄율 하락’에 주목한하면 경찰력 이외의 다른 변수가 범죄율 하락에 매우 큰 기여를 했을 가능성을 염두해볼 수 있다. 그러나 보다 정확한 분석을 위해서는 경찰인력과 범죄수를 지역별로 통제해줘야 한다. 그 이유는 경찰 인력의 배치는 전 지구적으로, 그리고 각 지역적 특성을 반영하여 이뤄지기 때문이다. 예컨대, 인구가 많은 서울 경기 지역에서는 범죄의 수와 경찰 인구의 절대량이 상대적으로 클 수밖에 없다. 따라서 위에서 언급했던 이례적인 하락 구간에서의 2004,2005년과 2009,2010년의 데이터를 사용하여 ‘지역별 인구/지역별 경찰관수 = 경찰 1인당 담당인구’, ‘지역별 범죄수/지역별 인구= 범죄발생비율’를 구해 비교해보았다.
+![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-2-1.png) 이러한 2005년과 2010년의 ‘이례적 범죄율 하락’에 주목한하면 경찰력 이외의 다른 변수가 범죄율 하락에 매우 큰 기여를 했을 가능성을 염두해볼 수 있다. 그러나 보다 정확한 분석을 위해서는 경찰인력과 범죄수를 지역별로 통제해줘야 한다. 그 이유는 경찰 인력의 배치는 전 지구적으로, 그리고 각 지역적 특성을 반영하여 이뤄지기 때문이다. 예컨대, 인구가 많은 서울 경기 지역에서는 범죄의 수와 경찰 인구의 절대량이 상대적으로 클 수밖에 없다. 따라서 위에서 언급했던 이례적인 하락 구간에서의 2004,2005년과 2009,2010년의 데이터를 사용하여 ‘지역별 인구/지역별 경찰관수 = 경찰 1인당 담당인구’, ‘지역별 범죄수/지역별 인구= 범죄발생비율’를 구해 비교해보았다.
 
 ``` r
 p_capita_04<- data2$pop/data[10,36:50]
@@ -72,11 +72,21 @@ layout=matrix(c(1,1,2,2), nrow=2, byrow=TRUE)
 multiplot(p1, p2, layout = layout)
 ```
 
-![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-3-1.png?raw=true) y축은 t년도에서 t-1년도의 1인당 담당인구를 빼준 1인당 담당인구의 변화량을 나타낸다. y의 값이 -(negative)가 됐다는 것은 과거에 비해 담당해야할 인구의 수가 줄었다는 것을 의미한다. 유영철이 검거된 해의 2004년과 2005년을 비교했을 때 인천 지역을 제외한 모든 지역에서는 1인당 담당인구가 줄어들었음을 확인할 수 있다. 반면 강호순이 검거된 해의 2009년과 2010년을 비교했을 때 경기 지역을 제외한 모든 지역의 1인당 담당인구가 증가했으며 그 수치 또한 상당하다.
+![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-3-1.png) y축은 t년도에서 t-1년도의 1인당 담당인구를 빼준 1인당 담당인구의 변화량을 나타낸다. y의 값이 -(negative)가 됐다는 것은 과거에 비해 담당해야할 인구의 수가 줄었다는 것을 의미한다. 유영철이 검거된 해의 2004년과 2005년을 비교했을 때 인천 지역을 제외한 모든 지역에서는 1인당 담당인구가 줄어들었음을 확인할 수 있다. 반면 강호순이 검거된 해의 2009년과 2010년을 비교했을 때 경기 지역을 제외한 모든 지역의 1인당 담당인구가 증가했으며 그 수치 또한 상당하다. 2009년 강호순이 검거된 곳이 경기지역임을 감안했을 때 상당한 경찰 인력이 이 지역으로 편중되었음을 보여주는 자료이다. 범죄가 특지 지역에서 랜덤하게 발생한다고 가정했을 때, 이러한 사후적 인력 재배치는 범죄율 경감에 기여하지 못할 것으로 예상된다. 우리는 지금까지 범죄자의 범행에 초점을 두고 경찰력 증대에 따른 범죄 예방 효과를 관찰해왔다. 그러나 같은 원리로 잠재적 피해자의 감소 또한 범죄율을 감소시 수 있다. 말하자면 잠재적 피해자의 범행 피해에 대한 예방, 주의, 관심이 범죄율감 감소시킬 수 있다는 것이다. 본 연구에서는 그러한 척도의 대리변수로서 지역별 인터넷 이용률을 이용하였다. 지역별 인터넷 이용률과 범죄 발생의 관계를 분석하기에 앞서, 우리는 지역별 인구 분포를 고려해야 할 것이다\[Graph5\]. 왜냐하면 인구가 많이 밀집된 지역일수록 SNS, 언론 매체의 노출 등 'network effect'가 클 것으로 예상되기 때문이다.
+
+``` r
+data2 %>%
+  select(pop,region) %>%
+  ggplot(aes(x = reorder(region, -pop), y= pop)) + geom_bar(stat="identity",fill="darkgreen") +
+  ggtitle('Graph5') + xlab('region')
+```
+
+![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-4-1.png) 분석의 편의를 위해 인구가 가장 많은 지역부터 경기, 서울, 부산, 그리고 인구가 가장 적은 지역부터 울산, 강원, 광주, 6개의 지역의 지역별 인터넷 이용률과 범죄 발생 비율의 관계를 살펴보았다\[Graph6\].
 
 ``` r
 p1=ggplot(data,aes(x= data$seoul_use, y= data$seoul_crime)) + geom_point(shape=1, col='red',size=3)#
-p2=ggplot(data,aes(x= data$incheon_use, y= data$incheon_crime)) + geom_point(shape=1, col='red',size=3)
+p2=ggplot(data,aes(x= data$incheon_use, y= data$incheon_crime)) + geom_point(shape=1, col='red',size=3) +
+  ggtitle('Graph6')
 p3=ggplot(data,aes(x= data$kyungki_use, y= data$kyungki_crime)) + geom_point(shape=1, col='red',size=3)
 p4=ggplot(data,aes(x= data$busan_use, y= data$busan_crime)) + geom_point(shape=1, col='red',size=3) #
 p5=ggplot(data,aes(x= data$ulsan_use, y= data$ulsan_crime)) + geom_point(shape=1, col='red',size=3) #
@@ -94,4 +104,4 @@ print(p5, vp = vplayout(2, 2))
 print(p6, vp = vplayout(2, 3))
 ```
 
-![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-4-1.png?raw=true)
+![](my_report_rmd_files/figure-markdown_github/unnamed-chunk-5-1.png)
